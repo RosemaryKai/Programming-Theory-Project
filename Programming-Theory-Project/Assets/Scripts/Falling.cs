@@ -12,17 +12,6 @@ public class Falling : MonoBehaviour
             speed = Mathf.Clamp(value, 0f, 10f);
         }
     }
-    
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
 
     // Creates a method that is forced to be overriden in derived scripts
     public virtual void MoveDown()

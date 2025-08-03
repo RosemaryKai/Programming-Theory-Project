@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class Falling_Star : Falling
 {
-    new float m_Speed = 5.0f;
-
-    void Start()
-    {
-        
-    }
+    new float m_Speed = 3.0f;
 
     void FixedUpdate()
     {
