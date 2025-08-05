@@ -10,12 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     void Awake()
     {
-        InvokeRepeating("SpawnStars", 2.0f, 2.0f);
-    }
-
-    void Update()
-    {
-        
+        InvokeRepeating("SpawnStars", 3.0f, 2.0f);
     }
 
     // ABSTRACTION
