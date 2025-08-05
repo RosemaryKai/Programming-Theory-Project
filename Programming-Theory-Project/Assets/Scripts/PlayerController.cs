@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private float xBound = 9.0f;
 
     private int score;
+
+    
 
     
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -63,3 +66,4 @@ public class PlayerController : MonoBehaviour
 
 
 }
+
