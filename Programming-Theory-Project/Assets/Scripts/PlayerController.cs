@@ -3,11 +3,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody playerRb;
+
     public float speed = 5.0f;
+    public float jumpForce = 2.0f;
+
+    
+
+    private void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
 
     void FixedUpdate()
     {
         Movement();
+        Dash();
     }
 
     void Movement()
@@ -24,4 +35,14 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            playerRb.AddForce(Vector3.zero, ForceMode.Impulse);
+        }
+    }
+
+
 }

@@ -7,9 +7,12 @@ public class Falling_Star : Falling
     void FixedUpdate()
     {
         MoveDown();
+        // INHERITANCE
+        DestroyOutOfBounds();
     }
 
     // Overriden MoveDown() script from Base script.
+    // POLYMORPHISM (I think...)
     public override void MoveDown()
     {
         transform.Translate(Vector3.down * m_Speed * Time.deltaTime);

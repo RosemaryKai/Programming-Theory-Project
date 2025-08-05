@@ -18,6 +18,7 @@ public class SpawnManager : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     void SpawnStars()
     {
         int index = 0;

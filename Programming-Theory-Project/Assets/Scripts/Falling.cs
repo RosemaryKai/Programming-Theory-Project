@@ -3,6 +3,7 @@ using UnityEngine;
 public class Falling : MonoBehaviour
 {
     // Speeds for derived scripts
+    // ENCAPSULATION
     private float speed = 5.0f;
     protected float m_Speed
     {
@@ -17,5 +18,13 @@ public class Falling : MonoBehaviour
     public virtual void MoveDown()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
+    }
+
+    public void DestroyOutOfBounds()
+    {
+        if (transform.position.y < -4.0f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
