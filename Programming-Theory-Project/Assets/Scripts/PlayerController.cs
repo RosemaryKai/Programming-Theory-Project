@@ -1,14 +1,18 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody playerRb;
+    private Rigidbody playerRb;
 
-    public float speed = 5.0f;
-    public float jumpForce = 2.0f;
+    private float speed = 5.0f;
+    private float xBound = 9.0f;
+
+    private int score;
 
     
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     private void Start()
     {
@@ -18,7 +22,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
-        Dash();
+        KeepInBound();
+        ScoreKeeper(0);
     }
 
     void Movement()
@@ -32,16 +37,28 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Star"))
         {
             Destroy(collision.gameObject);
+            score += 1;
         }
 
     }
 
-    private void Dash()
+    private void KeepInBound()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (transform.position.x > xBound)
         {
-            playerRb.AddForce(Vector3.zero, ForceMode.Impulse);
+            transform.position = new Vector3 (xBound, transform.position.y, transform.position.z);
         }
+
+        if (transform.position.x < -xBound)
+        {
+            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
+        }
+    }
+
+    public void ScoreKeeper(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreText.text = "Score: " + score;
     }
 
 
